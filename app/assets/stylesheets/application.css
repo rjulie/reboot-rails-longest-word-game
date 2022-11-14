@@ -14,18 +14,10 @@
  *= require_self
  */
 
-.letters {
+.letters li {
   background-color: darkslateblue;
-  width: 60px;
-  height: 60px;
   color: white;
   font-size: 40px;
-}
-
-/* .letters li {
-  background-color: #0d6efd;
-  color: white;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   padding: 4px 12px;
   display: inline;
-} */
+}
