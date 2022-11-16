@@ -17,21 +17,21 @@ class GamesController < ApplicationController
   end
 
   def score
-    # raise
-    @game = 0
+    @new_score = 0
     @letters = params[:letters].split
     @word = (params[:word] || '').upcase
     @included = included?(@word, @letters)
     @english_word = english_word?(@word)
-    @score = game(@word)
+    @new_score = @word.length**2
+    if cookies[:game].nil?
+      cookies[:game] = @new_score
+    else
+      cookies[:game] = cookies[:game].to_i + @new_score
+    end
+    # raise
   end
 
   private
-
-  def game(word)
-    score = word.length**2
-    @game += score
-  end
 
   def included?(word, letters)
     # pour chacune des lettres de @word, existe-t-il au moins 1 fois cette lettre dans @letters ?
